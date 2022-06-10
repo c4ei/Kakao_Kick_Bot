@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/skyneton/Kakao_Auto_Kick_Bot#readme",
   "dependencies": {
+    "dotenv": "^16.0.1",
     "node-kakao": "^4.2.1"
   }
 }

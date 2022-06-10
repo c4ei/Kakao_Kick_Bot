@@ -1,5 +1,7 @@
 const fs = require("fs");
 const kakao = require("node-kakao");
+require('dotenv').config();
+
 module.exports = bot => {
     try {
         const dataBuffer = fs.readFileSync("./data/userdata.json", {"encoding": "utf-8"});
@@ -14,9 +16,9 @@ module.exports = bot => {
     }catch(e) {
         if(!fs.existsSync("./data")) fs.mkdirSync("./data");
         fs.writeFileSync("./data/userdata.json", JSON.stringify({
-            "email": "이메일을 입력하세요.",
-            "password": "비밀번호를 입력하세요.",
-            "device": "디바이스 이름",
+            "email": process.env.E_EMAIL,
+            "password": process.env.E_PASSWORD,
+            "device": process.env.E_DEVICE,
             "uuid": kakao.util.randomWin32DeviceUUID(),
         }, null, 4), {"encoding": "utf-8"});
     }
